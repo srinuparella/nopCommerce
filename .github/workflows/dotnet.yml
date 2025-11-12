@@ -1,0 +1,13 @@
+name: dotnet-project
+on:
+      push:
+        branches:
+          - develop
+jobs:
+  dotnet_project_job:
+    runs-on: 'self-hosted'
+    steps:
+      - name: git checkout to the code
+        uses: actions/checkout@v5
+      - name: dot net build for need dll files
+        run: dotnet publish -c Release -o src/Presentation/Nop.Web dll_dir
