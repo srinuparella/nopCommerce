@@ -5,9 +5,19 @@ on:
           - develop
 jobs:
   dotnet_project_job:
-    runs-on: 'self-hosted'
+    # runs-on: 'self-hosted'
+    runs-on: 'ubuntu-latest'
     steps:
       - name: git checkout to the code
         uses: actions/checkout@v5
-      - name: dot net build for need dll files
+      # - name: sonarcode scan
+      #   uses: SonarSource/sonarqube-scan-action@v5
+      #   with:
+      #     gitsonartoken: ${{ secrets.SONARTOKEN }}
+      #     gitsonarurl: ${{ secrets.SONAR_HOST_URL }}
+      - name: dotnet install
+        uses: actions/checkout@v5
+        with:
+          dotnet-version: '9.0.100'
+      - name: dotnet publish dll
         run: dotnet publish -c Release  src/Presentation/Nop.Web -o dll_dir
