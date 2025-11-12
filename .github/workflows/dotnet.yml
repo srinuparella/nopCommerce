@@ -10,4 +10,4 @@ jobs:
       - name: git checkout to the code
         uses: actions/checkout@v5
       - name: dot net build for need dll files
-        run: dotnet publish -c Release -o src/Presentation/Nop.Web dll_dir
+        run: dotnet publish -c Release  src/Presentation/Nop.Web -o dll_dir
