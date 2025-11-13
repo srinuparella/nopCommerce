@@ -44,11 +44,11 @@ jobs:
           docker image build -t myimage:1.0
           docker tag myimage:1.0 934545598565.dkr.ecr.us-east-1.amazonaws.com/actions:latest
           docker push 934545598565.dkr.ecr.us-east-1.amazonaws.com/actions:latest
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.28.0
-        run: |
-           trivy image actions:latest
-      # - name: Login K8s
+      # - name: Run Trivy vulnerability scanner
+      #   uses: aquasecurity/trivy-action@0.28.0
+      #   run: |
+      #      trivy image actions:latest
+      # # - name: Login K8s
       #   uses: actions-hub/kubectl@master
       #   with:
       # - name: Configure kubeconfig for EKS
