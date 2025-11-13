@@ -1,15 +1,37 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dep-pod
+  name: gitAction-deployment
   labels:
     app: gitHub
 spec:
   replicas: 3
   minReadySeconds: 5
   selector:
-    matchlabels:
+    matchLabels:
       app : Actions
   strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
     type: RollingUpdate
-  
+  template:
+    metadata:
+      name: gitAction-container
+      labels:
+        app: Actions
+    spec:
+      containers:
+        - name: pod-container
+          image: nginx:1.29
+          ports:
+            - containerPort: 8080
+              protocol: "TCP"
+          resources:
+          requests:
+            cpu: "800m"
+            memory: "1500Mi"
+          limits:
+            cpu: "1800m"
+            memory: "1800Mi"
+        

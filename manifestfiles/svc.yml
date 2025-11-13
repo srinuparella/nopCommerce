@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gitAction-service
+spec:
+  type: LoadBalancer
+  selector:
+      app: Actions
+  ports:
+    - port: 80   
+      targetPort: 5000
+      protocol: TCP
