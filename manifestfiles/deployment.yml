@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dep-pod
+  labels:
+    app: gitHub
+spec:
+  replicas: 3
+  minReadySeconds: 5
+  selector:
+    matchlabels:
+      app : Actions
+  strategy:
+    type: RollingUpdate
+  
