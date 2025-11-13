@@ -62,7 +62,6 @@ jobs:
    
       - name: Login K8s
         uses: actions-hub/kubectl@master
-        with:
       - name: Configure kubeconfig for EKS
         run: |
           aws eks update-kubeconfig --region us-east-1 --name richard
