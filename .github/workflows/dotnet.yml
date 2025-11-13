@@ -45,9 +45,8 @@ jobs:
           ECR_REPOSITORY: actions
           IMAGE_TAG: latest
         run: |
-      
-          docker image build -t myimage:1.0
-          docker tag myimage:1.0 934545598565.dkr.ecr.us-east-1.amazonaws.com/actions:latest
+          docker image build -t actions:latest
+          docker tag actions:latest 934545598565.dkr.ecr.us-east-1.amazonaws.com/actions:latest
           docker push 934545598565.dkr.ecr.us-east-1.amazonaws.com/actions:latest
       # - name: Run Trivy vulnerability scanner
       #   uses: aquasecurity/trivy-action@0.28.0
