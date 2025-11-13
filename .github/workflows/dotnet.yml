@@ -71,5 +71,5 @@ jobs:
           kubectl get nodes
       - name: Run Pods
         run: |
-          kubectl apply -f /manifestfiles/*
+          kubectl apply -f manifestfiles/
           kubectl get all
