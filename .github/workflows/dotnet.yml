@@ -40,8 +40,12 @@ jobs:
       - name: Login Docker 
         uses: docker/build-push-action@v6
       - name: build and push image
+        env:
+          ECR_REGISTRY: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 934545598565.dkr.ecr.us-east-1.amazonaws.com
+          ECR_REPOSITORY: actions
+          IMAGE_TAG: latest
         run: |
-          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 934545598565.dkr.ecr.us-east-1.amazonaws.com
+      
           docker image build -t myimage:1.0
           docker tag myimage:1.0 934545598565.dkr.ecr.us-east-1.amazonaws.com/actions:latest
           docker push 934545598565.dkr.ecr.us-east-1.amazonaws.com/actions:latest
