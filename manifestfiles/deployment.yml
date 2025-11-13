@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gitAction-deployment
+  name: gitaction-deployment
   labels:
     app: gitHub
 spec:
@@ -9,7 +9,7 @@ spec:
   minReadySeconds: 5
   selector:
     matchLabels:
-      app : Actions
+      app : actions
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -17,9 +17,9 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      name: gitAction-container
+      name: gitaction-container
       labels:
-        app: Actions
+        app: actions
     spec:
       containers:
         - name: pod-container
