@@ -17,8 +17,8 @@ jobs:
             SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
            args: >
-             -Dsonar.organization:srinuparella
-             -Dsonar.projectKey:srinuparella_nopCommerce
+             -Dsonar.organization=srinuparella
+             -Dsonar.projectKey=srinuparella_nopCommerce
        
             
       # - name: dotnet install
