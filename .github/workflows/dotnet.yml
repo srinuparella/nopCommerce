@@ -13,12 +13,13 @@ jobs:
       - name: sonarcode scan
         uses: SonarSource/sonarqube-scan-action@v3
         env:
-            SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
+            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
             SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
            args: >
              -Dsonar.organization:srinuparella
              -Dsonar.projectKey:srinuparella_nopCommerce
+       
             
       # - name: dotnet install
       #   uses: actions/checkout@v5
